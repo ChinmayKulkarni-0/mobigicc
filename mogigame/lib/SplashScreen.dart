@@ -1,7 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
+import 'package:http/http.dart';
 import 'package:mogigame/RCvier.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -31,11 +31,10 @@ class _SplashScreenState extends State<SplashScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
+                Container(
                     height: 300,
                     width: 300,
-                    child: Lottie.network(
-                        'https://lottiefiles.com/31548-robot-says-hello')),
+                    child: Image.asset('Assets/hello.gif')),
                 const SizedBox(height: 20),
                 DefaultTextStyle(
                   style: const TextStyle(

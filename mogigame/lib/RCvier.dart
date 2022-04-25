@@ -1,13 +1,16 @@
-// ignore_for_file: deprecated_member_use, avoid_unnecessary_containers
-
+// @dart=2.9
+// ig//
 import 'package:flutter/material.dart';
 import 'package:word_search/word_search.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key key}) : super(key: key);
+
+  get newPuzzle => null;
 
   @override
-  State<Home> createState() => _HomeState();
+  // ignore: no_logic_in_create_state
+  State<Home> createState() => _HomeState(newPuzzle);
 }
 
 class _HomeState extends State<Home> {
@@ -64,7 +67,7 @@ class _HomeState extends State<Home> {
   int rowC = 6;
   int colC = 5;
 
-  late String wordSelect;
+  String wordSelect;
   final List<String> wl = [
     'INDIA',
     'MANGO',
@@ -82,9 +85,12 @@ class _HomeState extends State<Home> {
   // Create the puzzle sessting object
 
   final WordSearch wordSearch = WordSearch();
-  late final WSNewPuzzle newPuzzle;
+  WSNewPuzzle newPuzzle;
   List<String> letters = [];
   final List<String> cells = [];
+
+  _HomeState(newPuzzle);
+
   initState() {
     // _controller = TextEditingController();
     generateRandomWord();

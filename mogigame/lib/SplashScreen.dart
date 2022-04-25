@@ -32,10 +32,10 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 300,
-                  width: 300,
-                  // child: Lottie.network('https://assets4.lottiefiles.com/packages/lf20_1pxqjqps.json')
-                ),
+                    height: 300,
+                    width: 300,
+                    child: Lottie.network(
+                        'https://lottiefiles.com/31548-robot-says-hello')),
                 const SizedBox(height: 20),
                 DefaultTextStyle(
                   style: const TextStyle(

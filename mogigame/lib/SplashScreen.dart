@@ -34,8 +34,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 Container(
                     height: 300,
                     width: 300,
-                    child: Image.asset('Assets/hello.gif')),
-                const SizedBox(height: 20),
+                    child:Lottie.asset("assets/helloexpert.json")),
+                const SizedBox(height: 30),
                 DefaultTextStyle(
                   style: const TextStyle(
                     fontSize: 20.0,

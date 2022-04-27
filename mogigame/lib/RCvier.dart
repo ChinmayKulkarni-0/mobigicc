@@ -64,7 +64,7 @@ class _HomeState extends State<Home> {
 
   bool _isElevated = false;
   bool _isReset = false;
-  int rowC = 6;
+  int rowC = 5;
   int colC = 5;
 
   String wordSelect;
@@ -184,7 +184,7 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildGameBody() {
-    int gridStateLength = newPuzzle.puzzle.length;
+    int colC = newPuzzle.puzzle.length;
     return Column(
       children: <Widget>[
         AspectRatio(
@@ -196,10 +196,10 @@ class _HomeState extends State<Home> {
                 border: Border.all(color: Colors.white, width: 2.0)),
             child: GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: gridStateLength,
+                crossAxisCount: rowC,
               ),
               itemBuilder: _buildGridItems,
-              itemCount: gridStateLength * gridStateLength,
+              itemCount: colC * rowC,
             ),
           ),
         ),
@@ -258,6 +258,46 @@ class _HomeState extends State<Home> {
         SizedBox(
           height: 10,
         ),
+        Text("Row"),
+        TextField(
+          controller: row,
+          decoration: const InputDecoration(
+              fillColor: Colors.white,
+              filled: true,
+              label: Text(
+                'Search..',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              )),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        Text(
+          "Column",
+        ),
+        TextField(
+          controller: column,
+          decoration: const InputDecoration(
+              fillColor: Colors.white,
+              filled: true,
+              label: Text(
+                'Search..',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              )),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        FlatButton(
+            onPressed: () {
+              rowC = int.parse(row.text);
+              colC = int.parse(column.text);
+              setState(() {});
+            },
+            child: Container(
+                color: Colors.purple,
+                padding: EdgeInsets.all(20),
+                child: Text("Add"))),
         GestureDetector(
           onTap: () {
             Navigator.pushAndRemoveUntil(

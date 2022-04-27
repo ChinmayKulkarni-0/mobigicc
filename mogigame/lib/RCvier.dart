@@ -258,30 +258,28 @@ class _HomeState extends State<Home> {
         SizedBox(
           height: 10,
         ),
-        Text("Row"),
+
         TextField(
           controller: row,
           decoration: const InputDecoration(
               fillColor: Colors.white,
               filled: true,
               label: Text(
-                'Search..',
+                'Row..',
                 style: TextStyle(fontWeight: FontWeight.bold),
               )),
         ),
         SizedBox(
           height: 20,
         ),
-        Text(
-          "Column",
-        ),
+
         TextField(
           controller: column,
           decoration: const InputDecoration(
               fillColor: Colors.white,
               filled: true,
               label: Text(
-                'Search..',
+                'Column..',
                 style: TextStyle(fontWeight: FontWeight.bold),
               )),
         ),
@@ -292,6 +290,11 @@ class _HomeState extends State<Home> {
             onPressed: () {
               rowC = int.parse(row.text);
               colC = int.parse(column.text);
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+                (Route<dynamic> route) => false,
+              );
               setState(() {});
             },
             child: Container(
